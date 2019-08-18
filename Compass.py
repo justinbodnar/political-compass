@@ -12,8 +12,8 @@ import matplotlib.pyplot as plt
 def get_questions():
 	# db config
 	host="localhost"
-	user="user"
-	passwd="password"
+	user="root"
+	passwd="abc123"
 	database="political_compass"
 	# connect to db
 	db = mysql.connector.connect( host=host, user=user, passwd=passwd, database=database )
@@ -114,10 +114,10 @@ def grade_quiz( answers ):
 # simply plots a single dot
 def gen_compass( x, y ):
 	plt.plot( x, y, s=1000)
-
+'''
 # for testing
 # build answer list
-'''
+
 answers = []
 answers = answers + [ 1, 4, 1, 4, 4, 4, 1, 1, 4, 1 ]
 answers = answers + [ 1, 1, 1, 1, 1, 4, 4, 4, 1, 1 ]
@@ -126,7 +126,7 @@ answers = answers + [ 4, 4, 4, 1, 4, 4, 1, 4, 4, 4 ]
 answers = answers + [ 4, 4, 4, 4, 4, 1, 1, 1, 4, 1 ]
 answers = answers + [ 4, 4, 4, 4, 4, 4, 4, 1, 1, 1 ]
 answers = answers + [ 4, 4 ]
-'''
+
 # generate random answer array
 answers = []
 for i in range(62):
@@ -134,4 +134,5 @@ for i in range(62):
 
 x_coord, y_coord = grade_quiz( answers )
 print( "(" + str( x_coord ) + ", " + str( y_coord ) + ")" )
-#take_quiz()
+'''
+take_quiz()
