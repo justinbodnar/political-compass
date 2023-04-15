@@ -1,5 +1,5 @@
 ﻿# Political Compass
-reverse engineered version of the 4-panel compass found on politicalcompass.org
+An accurate recreation of the renowned 4-panel political compass from politicalcompass.org
 
 # quick start
 
@@ -16,7 +16,7 @@ Considering the possible answers are within { 1, 2, 3, 4 }, the difference betwe
 
 # political-compass-question-weights.sql
 
-a backup of the MySQL database holding the question weights
+A backup of the MySQL database holding the question weights.
 
 # Compass.py
 
@@ -29,7 +29,7 @@ a backup of the MySQL database holding the question weights
 
 # paginate_quiz.py
 
-a rough draft of the code to paginate the quiz for user submission, using flask/jinja.
+A rough draft of the code to paginate the quiz for user submission, using flask/jinja.
 
 
 
