@@ -10,7 +10,14 @@ python Compass.py
 
 # political-compass-question-weights.csv
 
-a csv representation of the political commpass quiz. each row contains a 'id' and the 'question' text for that id. an 'axis' is defined showing which direction the compass is affected by the question (up-down or left-right). the 'agree' column defines which direction the point should move for an user that agrees. obviously, disagreeing will move in the opposite direction. the 'units' column defines the distance between an answer of 'completely agree' and 'completely disagree.' this is a max distance. being that the possible answers are within { 1, 2, 3, 4 }, the difference between each of these is constant, and is ( units/4 ) for any question. when calculating results from a list of answers, we assume the point begins at the center within this range and AT MOST we move a point (units/2) in the appropriate direction. in this way we maintain accuracy comparable to the original quiz.
+a csv representation of the political commpass quiz. each row contains an 'id' and the 'question' text for that id.
+an 'axis' is defined showing which direction the compass is affected by the question (up-down or left-right).
+the 'agree' column defines which direction the point should move for an user that agrees.
+disagreeing will move in the opposite direction.
+the 'units' column defines the distance between an answer of 'completely agree' and 'completely disagree.' this is a max distance.
+being that the possible answers are within { 1, 2, 3, 4 }, the difference between each of these is constant, and is ( units/4 ) for any question.
+when calculating results from a list of answers, we assume the point begins at the center within this range and AT MOST we move a point (units/2) in the appropriate direction.
+in this way we maintain accuracy comparable to the original quiz.
 
 # political-compass-question-weights.sql
 
