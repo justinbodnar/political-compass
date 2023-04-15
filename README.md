@@ -10,14 +10,9 @@ python Compass.py
 
 # political-compass-question-weights.csv
 
-a csv representation of the political commpass quiz. each row contains an 'id' and the 'question' text for that id.
-an 'axis' is defined showing which direction the compass is affected by the question (up-down or left-right).
-the 'agree' column defines which direction the point should move for an user that agrees.
-disagreeing will move in the opposite direction.
-the 'units' column defines the distance between an answer of 'completely agree' and 'completely disagree.' this is a max distance.
-being that the possible answers are within { 1, 2, 3, 4 }, the difference between each of these is constant, and is ( units/4 ) for any question.
-when calculating results from a list of answers, we assume the point begins at the center within this range and AT MOST we move a point (units/2) in the appropriate direction.
-in this way we maintain accuracy comparable to the original quiz.
+This file contains a CSV representation of the political compass quiz. Each row contains an 'id' and the 'question' text for that id. An 'axis' is defined, showing which direction the compass is affected by the question (up-down or left-right). The 'agree' column defines which direction the point should move for a user that agrees, while disagreeing will move in the opposite direction. The 'units' column defines the distance between an answer of 'completely agree' and 'completely disagree.' This is a maximum distance.
+
+Considering the possible answers are within { 1, 2, 3, 4 }, the difference between each of these is constant and is ( units/4 ) for any question. When calculating results from a list of answers, we assume the point begins at the center within this range and AT MOST we move a point (units/2) in the appropriate direction. In this way, we maintain accuracy comparable to the original quiz.
 
 # political-compass-question-weights.sql
 
@@ -25,30 +20,12 @@ a backup of the MySQL database holding the question weights
 
 # Compass.py
 
-contains the following functions:
+- `get_questions()`: Connects to the SQL server and retrieves question data.
+- `do_strike(agree, answer, axis, weight, x_coord, y_coord)`: Adjusts coordinates based on the user's answer and question parameters.
+- `take_quiz()`: Initiates a quiz through the terminal with results visualized in Matplotlib.
+- `grade_quiz(answers)`: Evaluates a set of answers and presents the graphed result using Matplotlib. Answers are represented as a list of 64 elements, each within the set { 1, 2, 3, 4 }.
+- `gen_compass(x, y)`: Plots coordinates on a Matplotlib graph and displays the result.
 
-get_questions()
-
-connects to the sql server and gets the data regarding the questions
-
-do_strike( agree, answer, axis, weight, x_coord, y_coord ):
-
-takes in a users answer, fields from the database row for the question, and the users current coordinates.
-outputs the appropriatly struck coordinates.
-
-take_quiz():
-
-launches a quiz to be taken through the terminal.
-results are graphed in matplotlib
-
-grade_quiz( answers ):
-
-grades a set of answers, and launches the graphed result in matplotlib.
-answers are represented as a list of size 64, with elements within { 1, 2, 3, 4 }.
-
-gen_compass( x, y )
-
-graphs coordinates on a matplotlib graph and displays it to the screen
 
 # paginate_quiz.py
 
