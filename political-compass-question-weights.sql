@@ -18,6 +18,8 @@
 --
 -- Table structure for table `questions`
 --
+CREATE DATABASE IF NOT EXISTS political_compass;
+USE political_compass;
 
 DROP TABLE IF EXISTS `questions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
