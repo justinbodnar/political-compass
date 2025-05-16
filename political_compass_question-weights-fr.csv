@@ -1,63 +1,63 @@
-id;question;axis;units;agree
-1;Si la mondialisation économique est inévitable, elle devrait avant tout servir l'humanité plutôt que les intérêts des multinationales.;x;1.12;-
-2;Je soutiendrai toujours mon pays, qu'il ait raison ou tort.;y;0.5;+
-3;Personne ne choisit son pays de naissance, il est donc stupide d'en être fier.;y;0.5;-
-4;Notre race possède de nombreuses qualités supérieures à celles des autres races.;y;0.5;+
-5;L'ennemi de mon ennemi est mon ami.;y;0.5;+
-6;Les actions militaires qui enfreignent le droit international sont parfois justifiées.;y;0.5;+
-7;Il existe aujourd'hui une fusion inquiétante entre l'information et le divertissement.;y;0.5;-
-8;Au final, les gens sont davantage divisés par leur classe sociale que par leur nationalité.;x;1.13;-
-9;Il est plus important de contrôler l'inflation que le chômage.;x;1.13;+
-10;Comme on ne peut pas compter sur les entreprises pour protéger volontairement l'environnement, elles doivent être réglementées.;x;1;-
-11;« De chacun selon ses capacités, à chacun selon ses besoins » est une idée fondamentalement bonne.;x;1;-
-12;Il est triste de constater que dans notre société, quelque chose d'aussi basique que l'eau potable est désormais un produit de consommation en bouteille et de marque.;x;1.25;-
-13;La terre ne devrait pas être une marchandise que l'on achète et vend.;x;1.13;-
-14;Il est regrettable que de nombreuses fortunes personnelles soient constituées par des personnes qui se contentent de manipuler l'argent et ne contribuent en rien à leur société.;x;1.12;-
-15;Le protectionnisme est parfois nécessaire dans le commerce.;x;1.13;-
-16;La seule responsabilité sociale d'une entreprise devrait être de générer des profits pour ses actionnaires.;x;1.13;+
-17;Les riches sont trop imposés.;x;1;+
-18;Ceux qui en ont les moyens devraient avoir accès à des soins médicaux de meilleure qualité.;x;1;+
-19;Les gouvernements devraient sanctionner les entreprises qui trompent le public.;x;1;-
-20;Un véritable marché libre nécessite des restrictions sur la capacité des multinationales prédatrices à créer des monopoles.;y;0.1;-
-21;Plus le marché est libre, plus les gens sont libres.;x;1.25;+
-22;L'avortement, lorsque la vie de la femme n'est pas menacée, devrait toujours être illégal.;y;0.5;+
-23;Toute autorité devrait être remise en question.;y;0.5;-
-24;Œil pour œil, dent pour dent.;y;0.4;+
-25;Les contribuables ne devraient pas être tenus de soutenir les théâtres ou les musées qui ne peuvent survivre sur une base commerciale.;x;1.13;+
-26;Les écoles ne devraient pas rendre la fréquentation des cours obligatoire.;y;0.5;-
-27;Tout le monde a ses droits, mais il est préférable pour nous tous que les différentes catégories de personnes restent entre elles.;y;0.5;+
-28;Les bons parents doivent parfois donner une fessée à leurs enfants.;y;0.5;+
-29;Il est naturel que les enfants aient des secrets pour leurs parents.;y;0.5;-
-30;La possession de marijuana à des fins personnelles ne devrait pas être un délit pénal.;y;0.4;-
-31;La fonction première de l'école devrait être de préparer la génération future à trouver un emploi.;y;0.4;+
-32;Les personnes atteintes de handicaps héréditaires graves ne devraient pas être autorisées à se reproduire.;y;0.5;+
-33;La chose la plus importante que les enfants doivent apprendre est d'accepter la discipline.;y;0.5;+
-34;Il n'y a pas de peuples sauvages et civilisés, il n'y a que des cultures différentes.;y;0.5;-
-35;Ceux qui sont capables de travailler et refusent de le faire ne devraient pas s'attendre à bénéficier du soutien de la société.;y;0.5;+
-36;Lorsque vous êtes troublé, il vaut mieux ne pas y penser, mais vous occuper à des choses plus joyeuses.;y;0.5;+
-37;Les immigrants de première génération ne peuvent jamais s'intégrer pleinement dans leur nouveau pays.;y;0.5;-
-38;Ce qui est bon pour les entreprises les plus prospères est toujours, en fin de compte, bon pour nous tous.;x;1.4;+
-39;Aucun organisme de radiodiffusion, aussi indépendant soit-il, ne devrait recevoir de financement public.;x;0.75;+
-40;Nos libertés civiles sont excessivement restreintes au nom de la lutte contre le terrorisme.;y;0.5;+
-41;Un avantage significatif d'un État à parti unique est qu'il évite toutes les disputes qui retardent le progrès dans un système politique démocratique.;y;0.5;+
-42;Bien que l'ère électronique facilite la surveillance officielle, seuls les malfaiteurs ont à s'inquiéter.;y;0.5;+
-43;La peine de mort devrait être une option pour les crimes les plus graves.;y;0.5;+
-44;Dans une société civilisée, il faut toujours avoir des gens au-dessus de soi à qui obéir et des gens en dessous de soi à commander.;y;0.4;+
-45;L'art abstrait qui ne représente rien ne devrait pas être considéré comme de l'art.;y;0.5;+
-46;Dans le domaine de la justice pénale, la punition devrait primer sur la réinsertion.;y;0.5;-
-47;Il est inutile d'essayer de réinsérer certains criminels.;y;0.5;-
-48;Les hommes d'affaires et les industriels sont plus importants que les écrivains et les artistes.;y;0.4;-
-49;Les mères peuvent avoir une carrière, mais leur premier devoir est d'être femmes au foyer.;y;0.4;+
-50;Les multinationales exploitent de manière contraire à l'éthique les ressources génétiques végétales des pays en développement.;y;0.5;-
-51;Faire la paix avec l'ordre établi est un aspect important de la maturité.;y;0.4;+
-52;L'astrologie explique beaucoup de choses avec précision.;y;0.4;+
-53;On ne peut pas être moral sans être religieux.;y;0.4;+
-54;La charité est préférable à la sécurité sociale pour aider les personnes véritablement défavorisées.;x;1.25;+
-55;Certaines personnes sont naturellement malchanceuses.;y;0.4;+
-56;Il est important que l'école de mon enfant inculque des valeurs religieuses.;y;0.4;+
-57;Les relations sexuelles en dehors du mariage sont généralement immorales.;y;0.46;+
-58;Un couple de même sexe dans une relation stable et aimante ne devrait pas être exclu de la possibilité d'adopter un enfant.;y;0.4;-
-59;La pornographie, qui représente des adultes consentants, devrait être légale pour la population adulte.;y;0.4;-
-60;Ce qui se passe dans une chambre à coucher privée entre adultes consentants ne regarde pas l'État.;y;0.4;-
-61;Personne ne peut se sentir naturellement homosexuel.;y;0.4;+
-62;De nos jours, l'ouverture sexuelle est allée trop loin.;y;0.44;+
+"id","question","axis","units","agree"
+"1","Si la mondialisation économique est inévitable, elle devrait avant tout servir l'humanité plutôt que les intérêts des multinationales.","x","1.12","-"
+"2","Je soutiendrai toujours mon pays, qu'il ait raison ou tort.","y","0.5","+"
+"3","Personne ne choisit son pays de naissance, il est donc stupide d'en être fier.","y","0.5","-"
+"4","Notre race possède de nombreuses qualités supérieures à celles des autres races.","y","0.5","+"
+"5","L'ennemi de mon ennemi est mon ami.","y","0.5","+"
+"6","Les actions militaires qui enfreignent le droit international sont parfois justifiées.","y","0.5","+"
+"7","Il existe aujourd'hui une fusion inquiétante entre l'information et le divertissement.","y","0.5","-"
+"8","Au final, les gens sont davantage divisés par leur classe sociale que par leur nationalité.","x","1.13","-"
+"9","Il est plus important de contrôler l'inflation que le chômage.","x","1.13","+"
+"10","Comme on ne peut pas compter sur les entreprises pour protéger volontairement l'environnement, elles doivent être réglementées.","x","1.0","-"
+"11","« De chacun selon ses capacités, à chacun selon ses besoins » est une idée fondamentalement bonne.","x","1.0","-"
+"12","Il est triste de constater que dans notre société, quelque chose d'aussi basique que l'eau potable est désormais un produit de consommation en bouteille et de marque.","x","1.25","-"
+"13","La terre ne devrait pas être une marchandise que l'on achète et vend.","x","1.13","-"
+"14","Il est regrettable que de nombreuses fortunes personnelles soient constituées par des personnes qui se contentent de manipuler l'argent et ne contribuent en rien à leur société.","x","1.12","-"
+"15","Le protectionnisme est parfois nécessaire dans le commerce.","x","1.13","-"
+"16","La seule responsabilité sociale d'une entreprise devrait être de générer des profits pour ses actionnaires.","x","1.13","+"
+"17","Les riches sont trop imposés.","x","1.0","+"
+"18","Ceux qui en ont les moyens devraient avoir accès à des soins médicaux de meilleure qualité.","x","1.0","+"
+"19","Les gouvernements devraient sanctionner les entreprises qui trompent le public.","x","1.0","-"
+"20","Un véritable marché libre nécessite des restrictions sur la capacité des multinationales prédatrices à créer des monopoles.","y","0.1","-"
+"21","Plus le marché est libre, plus les gens sont libres.","x","1.25","+"
+"22","L'avortement, lorsque la vie de la femme n'est pas menacée, devrait toujours être illégal.","y","0.5","+"
+"23","Toute autorité devrait être remise en question.","y","0.5","-"
+"24","Œil pour œil, dent pour dent.","y","0.4","+"
+"25","Les contribuables ne devraient pas être tenus de soutenir les théâtres ou les musées qui ne peuvent survivre sur une base commerciale.","x","1.13","+"
+"26","Les écoles ne devraient pas rendre la fréquentation des cours obligatoire.","y","0.5","-"
+"27","Tout le monde a ses droits, mais il est préférable pour nous tous que les différentes catégories de personnes restent entre elles.","y","0.5","+"
+"28","Les bons parents doivent parfois donner une fessée à leurs enfants.","y","0.5","+"
+"29","Il est naturel que les enfants aient des secrets pour leurs parents.","y","0.5","-"
+"30","La possession de marijuana à des fins personnelles ne devrait pas être un délit pénal.","y","0.4","-"
+"31","La fonction première de l'école devrait être de préparer la génération future à trouver un emploi.","y","0.4","+"
+"32","Les personnes atteintes de handicaps héréditaires graves ne devraient pas être autorisées à se reproduire.","y","0.5","+"
+"33","La chose la plus importante que les enfants doivent apprendre est d'accepter la discipline.","y","0.5","+"
+"34","Il n'y a pas de peuples sauvages et civilisés, il n'y a que des cultures différentes.","y","0.5","-"
+"35","Ceux qui sont capables de travailler et refusent de le faire ne devraient pas s'attendre à bénéficier du soutien de la société.","y","0.5","+"
+"36","Lorsque vous êtes troublé, il vaut mieux ne pas y penser, mais vous occuper à des choses plus joyeuses.","y","0.5","+"
+"37","Les immigrants de première génération ne peuvent jamais s'intégrer pleinement dans leur nouveau pays.","y","0.5","-"
+"38","Ce qui est bon pour les entreprises les plus prospères est toujours, en fin de compte, bon pour nous tous.","x","1.4","+"
+"39","Aucun organisme de radiodiffusion, aussi indépendant soit-il, ne devrait recevoir de financement public.","x","0.75","+"
+"40","Nos libertés civiles sont excessivement restreintes au nom de la lutte contre le terrorisme.","y","0.5","+"
+"41","Un avantage significatif d'un État à parti unique est qu'il évite toutes les disputes qui retardent le progrès dans un système politique démocratique.","y","0.5","+"
+"42","Bien que l'ère électronique facilite la surveillance officielle, seuls les malfaiteurs ont à s'inquiéter.","y","0.5","+"
+"43","La peine de mort devrait être une option pour les crimes les plus graves.","y","0.5","+"
+"44","Dans une société civilisée, il faut toujours avoir des gens au-dessus de soi à qui obéir et des gens en dessous de soi à commander.","y","0.4","+"
+"45","L'art abstrait qui ne représente rien ne devrait pas être considéré comme de l'art.","y","0.5","+"
+"46","Dans le domaine de la justice pénale, la punition devrait primer sur la réinsertion.","y","0.5","-"
+"47","Il est inutile d'essayer de réinsérer certains criminels.","y","0.5","-"
+"48","Les hommes d'affaires et les industriels sont plus importants que les écrivains et les artistes.","y","0.4","-"
+"49","Les mères peuvent avoir une carrière, mais leur premier devoir est d'être femmes au foyer.","y","0.4","+"
+"50","Les multinationales exploitent de manière contraire à l'éthique les ressources génétiques végétales des pays en développement.","y","0.5","-"
+"51","Faire la paix avec l'ordre établi est un aspect important de la maturité.","y","0.4","+"
+"52","L'astrologie explique beaucoup de choses avec précision.","y","0.4","+"
+"53","On ne peut pas être moral sans être religieux.","y","0.4","+"
+"54","La charité est préférable à la sécurité sociale pour aider les personnes véritablement défavorisées.","x","1.25","+"
+"55","Certaines personnes sont naturellement malchanceuses.","y","0.4","+"
+"56","Il est important que l'école de mon enfant inculque des valeurs religieuses.","y","0.4","+"
+"57","Les relations sexuelles en dehors du mariage sont généralement immorales.","y","0.46","+"
+"58","Un couple de même sexe dans une relation stable et aimante ne devrait pas être exclu de la possibilité d'adopter un enfant.","y","0.4","-"
+"59","La pornographie, qui représente des adultes consentants, devrait être légale pour la population adulte.","y","0.4","-"
+"60","Ce qui se passe dans une chambre à coucher privée entre adultes consentants ne regarde pas l'État.","y","0.4","-"
+"61","Personne ne peut se sentir naturellement homosexuel.","y","0.4","+"
+"62","De nos jours, l'ouverture sexuelle est allée trop loin.","y","0.44","+"
