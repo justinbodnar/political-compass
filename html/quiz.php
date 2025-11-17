@@ -5,11 +5,17 @@ declare(strict_types=1);
 require __DIR__ . '/includes/quiz_lib.php';
 
 use function PoliticalCompass\csrf_token;
+use function PoliticalCompass\ensure_session;
 use function PoliticalCompass\load_questions;
 
 $questions = load_questions();
 $token = csrf_token();
 $totalQuestions = count($questions);
+$testingMode = false;
+ensure_session();
+if (!empty($_SESSION['tesintg'])) {
+    $testingMode = true;
+}
 $answerChoices = [
     1 => 'Strongly Agree',
     2 => 'Agree',
@@ -34,6 +40,9 @@ $answerChoices = [
                 <p class="eyebrow">Secure Web Quiz</p>
                 <h1>Answer each prompt</h1>
                 <p class="muted">Only radio inputs are used. All POST data is validated and CSRF-protected before we calculate your position.</p>
+                <?php if ($testingMode): ?>
+                    <p class="muted"><strong>Testing mode:</strong> unanswered items will count as "Disagree" so you can submit the form empty.</p>
+                <?php endif; ?>
             </div>
             <div class="progress" data-progress>0 / <?= htmlspecialchars((string) $totalQuestions, ENT_QUOTES, 'UTF-8'); ?> answered</div>
         </header>
@@ -54,7 +63,7 @@ $answerChoices = [
                                     id="<?= $inputId; ?>"
                                     name="q<?= $question['id']; ?>"
                                     value="<?= $value; ?>"
-                                    <?php if ($value === 1): ?>required<?php endif; ?>
+                                    <?php if ($value === 1 && !$testingMode): ?>required<?php endif; ?>
                                 >
                                 <span><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></span>
                             </label>

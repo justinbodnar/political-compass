@@ -222,6 +222,88 @@ a {
   }
 }
 
+.compass {
+  margin: 2rem 0;
+}
+
+.compass__grid {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;
+  margin: 1rem auto;
+  border: 2px solid rgba(148, 163, 184, 0.25);
+  border-radius: 1rem;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.compass__quadrant {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(15, 23, 42, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.compass__quadrant--ra {
+  background: #ffcccc;
+}
+
+.compass__quadrant--la {
+  background: #ccccff;
+}
+
+.compass__quadrant--rl {
+  background: #ccffcc;
+}
+
+.compass__quadrant--ll {
+  background: #ffffcc;
+}
+
+.compass__axis {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.compass__axis--x {
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.compass__axis--y {
+  width: 2px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.compass__dot {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #ef4444;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.15);
+  transform: translate(-50%, -50%);
+}
+
+.compass__legend {
+  text-align: center;
+  font-size: 0.875rem;
+}
+
 .question.shake {
   animation: shake 0.5s;
 }

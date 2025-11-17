@@ -4,7 +4,14 @@ declare(strict_types=1);
 
 require __DIR__ . '/includes/quiz_lib.php';
 
+use function PoliticalCompass\ensure_session;
 use function PoliticalCompass\load_questions;
+
+// Toggle this flag to enable testing mode that auto-fills unanswered questions as "Disagree".
+$tesintg = false;
+
+ensure_session();
+$_SESSION['tesintg'] = $tesintg;
 
 $questionCount = count(load_questions());
 ?>
