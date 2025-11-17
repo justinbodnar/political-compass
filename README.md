@@ -62,6 +62,21 @@ An open-source Python implementation of the renowned 4-quadrant political compas
 
 ---
 
+## Web Quiz (PHP)
+
+A secure browser-based version of the quiz now lives inside the [`html/`](html) directory. It reuses the same `political_compass_question-weights.csv`
+data source while sanitizing every POST request and guarding against CSRF attacks.
+
+### Run locally
+
+```bash
+php -S 0.0.0.0:8000 -t html
+```
+
+Then visit [http://localhost:8000](http://localhost:8000) to take the quiz.
+
+---
+
 ## Key Components
 
 ### `compass.py`
