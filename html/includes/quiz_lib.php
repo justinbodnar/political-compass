@@ -13,6 +13,21 @@ use SplFileObject;
 const CSV_FILE = __DIR__ . '/../../political_compass_question-weights.csv';
 
 /**
+ * Send basic security headers to harden the public pages.
+ */
+function send_security_headers(): void
+{
+    if (headers_sent()) {
+        return;
+    }
+
+    header("Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; form-action 'self'; base-uri 'none'");
+    header("Referrer-Policy: same-origin");
+    header('X-Content-Type-Options: nosniff');
+    header('X-Frame-Options: DENY');
+}
+
+/**
  * Lazily load and memoize all quiz questions from the CSV export.
  *
  * @return array<int, array{id:int,text:string,axis:string,units:float,agree:string}>
@@ -116,9 +131,13 @@ function calculate_coordinates(array $questions, array $answers): array
 function ensure_session(): void
 {
     if (session_status() === PHP_SESSION_NONE) {
+        $isSecure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+            || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] === '443');
+
         session_set_cookie_params([
             'httponly' => true,
             'samesite' => 'Lax',
+            'secure' => $isSecure,
         ]);
         session_start();
     }
