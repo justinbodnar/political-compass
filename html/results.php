@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 require __DIR__ . '/includes/quiz_lib.php';
 
-use function PoliticalCompass\answer_label;
 use function PoliticalCompass\calculate_coordinates;
 use function PoliticalCompass\collect_answers;
 use function PoliticalCompass\ensure_session;
@@ -19,14 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $questions = load_questions();
 $token = filter_input(INPUT_POST, 'csrf_token', FILTER_UNSAFE_RAW);
 ensure_session();
-$testingMode = !empty($_SESSION['tesintg']);
+$testingMode = !empty($_SESSION['testing']);
 
 $error = null;
 $answers = [];
 
 if (!is_valid_csrf($token)) {
     http_response_code(400);
-    $error = 'Security verification failed. Please reload the quiz and try again.';
+    $error = 'Security verification failed. Reload the quiz and try again.';
 } else {
     $answers = collect_answers($questions);
     $missing = [];
@@ -61,43 +60,33 @@ $dotTop = ((10 - $clampedY) / 20) * 100;
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Results</title>
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <main class="container">
-        <header class="page-header">
-            <div>
-                <p class="eyebrow">Results</p>
-                <h1>Your Political Compass</h1>
-                <p class="muted">Calculated exclusively from sanitized POST data.</p>
-            </div>
-        </header>
+    <main class="page">
+        <h1>Quiz results</h1>
         <?php if ($error !== null): ?>
-            <div class="alert alert--error">
-                <p><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
-                <a class="button" href="quiz.php">Return to the quiz</a>
-            </div>
+            <p class="note error"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
+            <a class="button" href="quiz.php">Return to the quiz</a>
         <?php else: ?>
-            <section class="results">
-                <div class="results__coords">
-                    <p>Your coordinates</p>
-                    <p class="results__value">
-                        Economic (x): <strong><?= number_format($coordinates[0], 2); ?></strong><br>
-                        Social (y): <strong><?= number_format($coordinates[1], 2); ?></strong>
-                    </p>
-                </div>
-                <a class="button" href="quiz.php">Retake the quiz</a>
-            </section>
-            <section class="compass">
-                <h2>Visualized position</h2>
+            <p>Your coordinates are:</p>
+            <p class="coords">
+                Economic (x): <strong><?= number_format($coordinates[0], 2); ?></strong><br>
+                Social (y): <strong><?= number_format($coordinates[1], 2); ?></strong>
+            </p>
+            <div class="compass">
                 <div class="compass__grid">
-                    <div class="compass__quadrant compass__quadrant--ra">Right<br>Authoritarian</div>
-                    <div class="compass__quadrant compass__quadrant--la">Left<br>Authoritarian</div>
-                    <div class="compass__quadrant compass__quadrant--rl">Right<br>Libertarian</div>
-                    <div class="compass__quadrant compass__quadrant--ll">Left<br>Libertarian</div>
+                    <span>Authoritarian</span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span>Libertarian</span>
                     <div class="compass__axis compass__axis--x"></div>
                     <div class="compass__axis compass__axis--y"></div>
                     <div
@@ -107,19 +96,9 @@ $dotTop = ((10 - $clampedY) / 20) * 100;
                         role="img"
                     ></div>
                 </div>
-                <p class="muted compass__legend">X-axis: Economic (Left ↔ Right), Y-axis: Social (Libertarian ↔ Authoritarian)</p>
-            </section>
-            <section>
-                <h2>Answer summary</h2>
-                <div class="answers">
-                    <?php foreach ($questions as $question): ?>
-                        <article class="answers__item">
-                            <h3><?= htmlspecialchars($question['text'], ENT_QUOTES, 'UTF-8'); ?></h3>
-                            <p><?= htmlspecialchars(answer_label($answers[$question['id']]), ENT_QUOTES, 'UTF-8'); ?></p>
-                        </article>
-                    <?php endforeach; ?>
-                </div>
-            </section>
+                <p class="note">Horizontal axis = economic (Left ↔ Right). Vertical axis = social (Libertarian ↔ Authoritarian).</p>
+            </div>
+            <a class="button" href="quiz.php">Retake the quiz</a>
         <?php endif; ?>
     </main>
 </body>

@@ -11,11 +11,10 @@ use function PoliticalCompass\load_questions;
 $questions = load_questions();
 $token = csrf_token();
 $totalQuestions = count($questions);
-$testingMode = false;
+
 ensure_session();
-if (!empty($_SESSION['tesintg'])) {
-    $testingMode = true;
-}
+$testingMode = !empty($_SESSION['testing']);
+
 $answerChoices = [
     1 => 'Strongly Agree',
     2 => 'Agree',
@@ -27,54 +26,39 @@ $answerChoices = [
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Take the Political Compass Quiz</title>
+    <title>Political Compass Quiz</title>
     <link rel="stylesheet" href="assets/style.css">
-    <script defer src="assets/app.js"></script>
 </head>
 <body>
-    <main class="container">
-        <header class="page-header">
-            <div>
-                <p class="eyebrow">Secure Web Quiz</p>
-                <h1>Answer each prompt</h1>
-                <p class="muted">Only radio inputs are used. All POST data is validated and CSRF-protected before we calculate your position.</p>
-                <?php if ($testingMode): ?>
-                    <p class="muted"><strong>Testing mode:</strong> unanswered items will count as "Disagree" so you can submit the form empty.</p>
-                <?php endif; ?>
-            </div>
-            <div class="progress" data-progress>0 / <?= htmlspecialchars((string) $totalQuestions, ENT_QUOTES, 'UTF-8'); ?> answered</div>
-        </header>
-        <form id="quiz-form" class="quiz" method="post" action="results.php" autocomplete="off">
+    <main class="page">
+        <h1>Answer each prompt</h1>
+        <p>This page only uses radio buttons and a CSRF token. Customize the markup to match your site.</p>
+        <?php if ($testingMode): ?>
+            <p class="note">Testing mode is on. Blank responses count as “Disagree.”</p>
+        <?php endif; ?>
+        <form method="post" action="results.php" autocomplete="off">
             <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($token, ENT_QUOTES, 'UTF-8'); ?>">
             <?php foreach ($questions as $index => $question): $questionNumber = $index + 1; ?>
-                <article class="question" id="question-<?= $questionNumber; ?>">
-                    <header>
-                        <p class="eyebrow">Question <?= $questionNumber; ?> of <?= $totalQuestions; ?></p>
-                        <h2><?= htmlspecialchars($question['text'], ENT_QUOTES, 'UTF-8'); ?></h2>
-                    </header>
-                    <div class="options" role="radiogroup" aria-labelledby="question-<?= $questionNumber; ?>">
-                        <?php foreach ($answerChoices as $value => $label): ?>
-                            <?php $inputId = 'q' . $question['id'] . '-' . $value; ?>
-                            <label class="option" for="<?= $inputId; ?>">
-                                <input
-                                    type="radio"
-                                    id="<?= $inputId; ?>"
-                                    name="q<?= $question['id']; ?>"
-                                    value="<?= $value; ?>"
-                                    <?php if ($value === 1 && !$testingMode): ?>required<?php endif; ?>
-                                >
-                                <span><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?></span>
-                            </label>
-                        <?php endforeach; ?>
-                    </div>
-                </article>
+                <fieldset>
+                    <legend>Question <?= $questionNumber; ?> of <?= $totalQuestions; ?></legend>
+                    <p><?= htmlspecialchars($question['text'], ENT_QUOTES, 'UTF-8'); ?></p>
+                    <?php foreach ($answerChoices as $value => $label): ?>
+                        <?php $inputId = 'q' . $question['id'] . '-' . $value; ?>
+                        <label for="<?= $inputId; ?>">
+                            <input
+                                type="radio"
+                                id="<?= $inputId; ?>"
+                                name="q<?= $question['id']; ?>"
+                                value="<?= $value; ?>"
+                                <?php if ($value === 1 && !$testingMode): ?>required<?php endif; ?>
+                            >
+                            <?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?>
+                        </label>
+                    <?php endforeach; ?>
+                </fieldset>
             <?php endforeach; ?>
-            <div class="quiz__actions">
-                <button class="button" type="submit">Show my coordinates</button>
-                <p class="muted">We do not log submissions. Your responses exist only for this calculation.</p>
-            </div>
+            <button class="button" type="submit">Show my coordinates</button>
         </form>
     </main>
 </body>
