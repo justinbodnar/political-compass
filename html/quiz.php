@@ -32,7 +32,7 @@ $answerChoices = [
 </head>
 <body>
     <main class="page">
-        <h1>Answer each prompt</h1>
+        <center><h1>Answer each prompt</h1></center>
         <p>This page only uses radio buttons and a CSRF token. Customize the markup to match your site.</p>
         <?php if ($testingMode): ?>
             <p class="note">Testing mode is on. Blank responses count as “Disagree.”</p>
