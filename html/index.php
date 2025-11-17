@@ -6,9 +6,12 @@ require __DIR__ . '/includes/quiz_lib.php';
 
 use function PoliticalCompass\ensure_session;
 use function PoliticalCompass\load_questions;
+use function PoliticalCompass\send_security_headers;
 
 // Toggle this flag while developing. When true the quiz can be submitted with unanswered prompts.
-$testing = true;
+$testing = false;
+
+send_security_headers();
 
 ensure_session();
 $_SESSION['testing'] = $testing;

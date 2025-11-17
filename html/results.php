@@ -9,6 +9,7 @@ use function PoliticalCompass\collect_answers;
 use function PoliticalCompass\ensure_session;
 use function PoliticalCompass\is_valid_csrf;
 use function PoliticalCompass\load_questions;
+use function PoliticalCompass\send_security_headers;
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: quiz.php');
@@ -17,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $questions = load_questions();
 $token = filter_input(INPUT_POST, 'csrf_token', FILTER_UNSAFE_RAW);
+send_security_headers();
 ensure_session();
 $testingMode = !empty($_SESSION['testing']);
 

@@ -1,108 +1,19 @@
 # Political Compass
 
-An open-source Python implementation of the renowned 4-quadrant political compass, written by [Justin Bodnar](https://justinbodnar.com) and inspired by the original concept from [politicalcompass.org](https://www.politicalcompass.org). Ideal for anyone looking to modify the existing quiz or create one of their own. This project allows users to take a quiz, analyze their results, and plot their political leanings on a two-axis graph.
+This repository ships two ways to run the classic four-quadrant political compass quiz and reuses the same weighted prompts everywhere:
 
----
+- **`compass.py`** — an interactive Python CLI that queries MySQL for prompts and renders a `political_compass.png` chart with Matplotlib.
+- **`html/`** — a drop-in PHP site that reads `political_compass_question-weights.csv`, sanitizes every POST, validates CSRF tokens, and now emits hardened HTTP headers for browsers.
+- **Data exports** — MySQL dump (`political-compass-question-weights.sql`) plus CSV versions (English + French) so either implementation can ingest identical weights.
 
-## Features
+## Python CLI quiz
+1. Install requirements: `pip install -r requirements.txt`.
+2. Import the schema: `mysql -u root -p -e "CREATE DATABASE political_compass;"` then `mysql -u root -p political_compass < political_compass_question-weights.sql`.
+3. Update the credentials inside `compass.py`, run `python compass.py`, and read the coordinates plus generated PNG.
 
-- **Interactive Quiz**:
-	- Questions fetched from a MySQL database.
-	- Calculates results based on weighted question responses.
-	- Outputs a user’s coordinates on the compass.
+## Browser quiz (PHP)
+1. Serve the folder locally: `php -S 0.0.0.0:8000 -t html` and visit <http://localhost:8000>.
+2. Flip `$testing = false`/`true` in `html/index.php` while developing to allow blank submissions.
+3. Each page enforces secure sessions, CSRF validation, strict input filtering, escaped output, and default security headers (`Content-Security-Policy`, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`).
 
-- **Graphical Visualization**:
-	- Plots results on a political compass chart using `Matplotlib`.
-	- Saves results as a `political_compass.png`.
-
-- **Database-Driven**:
-	- Includes SQL schema to manage questions and parameters.
-	- Easy to customize or expand the quiz content.
-
-- **Extensibility**:
-	- Designed for modifications or new quizzes.
-	- Can be modified for use on Flask.
-
----
-
-## Setup Instructions
-
-### Prerequisites
-- Python 3.x
-- MySQL
-
-### Installation Steps
-1. Clone the repository:
-	```bash
-	git clone https://github.com/username/political-compass.git
-	cd political-compass
-	```
-
-2. Install dependencies:
-	```bash
-	pip install -r requirements.txt
-	```
-
-3. Set up the MySQL database:
-	```bash
-	mysql -u root -p -e "CREATE DATABASE political_compass;"
-	mysql -u root -p political_compass < political_compass_question_weights.sql
-	```
-
-4. Run the quiz:
-	```bash
-	python Compass.py
-	```
-
-5. View Results
-
-    ```
-    political_compass.png
-    ```
-
----
-
-## Web Quiz (PHP)
-
-A secure browser-based version of the quiz now lives inside the [`html/`](html) directory. It reuses the same `political_compass_question-weights.csv`
-data source while sanitizing every POST request and guarding against CSRF attacks.
-
-### Run locally
-
-```bash
-php -S 0.0.0.0:8000 -t html
-```
-
-Then visit [http://localhost:8000](http://localhost:8000) to take the quiz.
-
----
-
-## Key Components
-
-### `compass.py`
-The main script for running the quiz and plotting results.
-
-Functions:
-- **`get_questions()`**: Retrieves questions from the MySQL database.
-- **`do_strike()`**: Updates the user's position on the compass.
-- **`take_quiz()`**: Runs the quiz interactively in the terminal.
-- **`grade_quiz()`**: Calculates the final coordinates from a set of answers.
-- **`gen_compass()`**: Generates a Matplotlib plot of the results.
-
-### `political_compass_question_weights.sql`
-SQL schema and data dump for quiz questions.
-
-Columns:
-- **`id`**: Unique identifier for each question.
-- **`question`**: The text of the question.
-- **`axis`**: Indicates the axis influenced (x or y).
-- **`units`**: Weight of the question's impact.
-- **`agree`**: Direction of movement for agreement.
-
-### `political_compass_question_weights.csv`
-CSV version of `political_compass_question_weights.sql` containing the same information.
-
----
-
-## To-Do
-- Develop a PHP/HTML version for seamless web integration.
+Everything else in the repo—CSV variants, SQL dump, and stylesheet assets—exists to support those two quiz front-ends.

@@ -7,11 +7,13 @@ require __DIR__ . '/includes/quiz_lib.php';
 use function PoliticalCompass\csrf_token;
 use function PoliticalCompass\ensure_session;
 use function PoliticalCompass\load_questions;
+use function PoliticalCompass\send_security_headers;
 
 $questions = load_questions();
 $token = csrf_token();
 $totalQuestions = count($questions);
 
+send_security_headers();
 ensure_session();
 $testingMode = !empty($_SESSION['testing']);
 
