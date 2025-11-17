@@ -66,7 +66,7 @@ $dotTop = ((10 - $clampedY) / 20) * 100;
 </head>
 <body>
     <main class="page">
-        <h1>Quiz results</h1>
+        <center><h1>Quiz results</h1>
         <?php if ($error !== null): ?>
             <p class="note error"><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></p>
             <a class="button" href="quiz.php">Return to the quiz</a>
@@ -98,7 +98,7 @@ $dotTop = ((10 - $clampedY) / 20) * 100;
                 </div>
                 <p class="note">Horizontal axis = economic (Left ↔ Right). Vertical axis = social (Libertarian ↔ Authoritarian).</p>
             </div>
-            <a class="button" href="quiz.php">Retake the quiz</a>
+            <a class="button" href="quiz.php">Retake the quiz</a></center>
         <?php endif; ?>
     </main>
 </body>
