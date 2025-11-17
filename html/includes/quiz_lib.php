@@ -131,15 +131,46 @@ function calculate_coordinates(array $questions, array $answers): array
 function ensure_session(): void
 {
     if (session_status() === PHP_SESSION_NONE) {
-        $isSecure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
-            || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] === '443');
+        $httpsFlag = filter_input(
+            INPUT_SERVER,
+            'HTTPS',
+            FILTER_UNSAFE_RAW,
+            ['flags' => FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH]
+        );
+        $serverPort = filter_input(INPUT_SERVER, 'SERVER_PORT', FILTER_VALIDATE_INT);
+        $isSecure = (!empty($httpsFlag) && strtolower((string) $httpsFlag) !== 'off')
+            || $serverPort === 443;
 
-        session_set_cookie_params([
+        $cookieDomain = ini_get('session.cookie_domain');
+        if ($cookieDomain === false) {
+            $cookieDomain = '';
+        }
+
+        $cookieParams = [
+            'lifetime' => 0,
+            'path' => '/',
+            'domain' => $cookieDomain,
+            'secure' => (bool) $isSecure,
             'httponly' => true,
             'samesite' => 'Lax',
-            'secure' => $isSecure,
-        ]);
-        session_start();
+        ];
+
+        if (PHP_VERSION_ID >= 70300) {
+            session_set_cookie_params($cookieParams);
+        } else {
+            $samesitePath = $cookieParams['path'] . '; samesite=' . $cookieParams['samesite'];
+            session_set_cookie_params(
+                $cookieParams['lifetime'],
+                $samesitePath,
+                $cookieParams['domain'],
+                $cookieParams['secure'],
+                $cookieParams['httponly']
+            );
+        }
+
+        if (!session_start()) {
+            throw new RuntimeException('Unable to start a secure session.');
+        }
     }
 }
 

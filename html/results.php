@@ -11,13 +11,22 @@ use function PoliticalCompass\is_valid_csrf;
 use function PoliticalCompass\load_questions;
 use function PoliticalCompass\send_security_headers;
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+$requestMethod = filter_input(
+    INPUT_SERVER,
+    'REQUEST_METHOD',
+    FILTER_UNSAFE_RAW,
+    ['flags' => FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH]
+);
+if (strtoupper((string) $requestMethod) !== 'POST') {
     header('Location: quiz.php');
     exit;
 }
 
 $questions = load_questions();
 $token = filter_input(INPUT_POST, 'csrf_token', FILTER_UNSAFE_RAW);
+if ($token !== null && !preg_match('/^[A-Fa-f0-9]{64}$/', $token)) {
+    $token = null;
+}
 send_security_headers();
 ensure_session();
 $testingMode = !empty($_SESSION['testing']);
